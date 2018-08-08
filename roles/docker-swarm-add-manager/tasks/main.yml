@@ -6,6 +6,6 @@
   tags: swarm
 
 - name: add managers
-  shell: "docker swarm join --token {{ hostvars['node1']['manager_token']['stdout'] }} {{ hostvars['node1']['ansible_default_ipv4']['address'] }}:2377"
+  shell: "docker swarm join --token {{ hostvars['node-1']['manager_token']['stdout'] }} {{ hostvars['node-1']['ansible_default_ipv4']['address'] }}:2377"
   when: swarm_status.rc != 0
   tags: swarm

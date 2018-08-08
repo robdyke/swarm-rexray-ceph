@@ -5,9 +5,9 @@
     state: present
 - name: add Ceph packages to repository
   apt_repository:
-    repo: deb https://download.ceph.com/debian {{ ansible_lsb.codename|lower }} main
-    state: present
-    filename: '/etc/apt/sources.list.d/ceph.list'
+    repo: deb https://download.ceph.com/debian-luminous {{ ansible_lsb.codename|lower }} main
+#    state: present
+#    filename: '/etc/apt/sources.list.d/ceph.list'
 - name: Update repositories cache and install "ceph-deploy" package
   apt:
     name: ceph-deploy

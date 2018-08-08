@@ -30,7 +30,8 @@
   args:
     chdir: ~/cluster
 - name: add OSDs
-  shell: "ceph-deploy osd create {{ item }}:/dev/vdb"
+#  shell: "ceph-deploy osd create {{ item }}:/dev/vdb"
+  shell: "ceph-deploy osd create --data /dev/vdb {{ item }}"
   with_items:
     - "node-1"
     - "node-2"
