@@ -1,15 +1,15 @@
 Host adm
         Hostname adm
         User cephuser
- 
+
 Host node1
-        Hostname node1
+        Hostname node-1
         User cephuser
- 
+
 Host node2
-        Hostname node2
+        Hostname node-2
         User cephuser
- 
+
 Host node3
-        Hostname node3
+        Hostname node-3
         User cephuser

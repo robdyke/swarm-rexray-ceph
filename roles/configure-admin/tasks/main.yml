@@ -1,6 +1,6 @@
 ---
 - name: Generate SSH keys
-  shell: ssh-keygen -b 2048 -f /home/cephuser/.ssh/id_rsa -t rsa -q -N "" 
+  shell: ssh-keygen -b 2048 -f /home/cephuser/.ssh/id_rsa -t rsa -q -N ""
   args:
     creates: /home/cephuser/.ssh/id_rsa
 - name: copy public key locally
@@ -20,6 +20,7 @@
 - name: run ssh-keyscan to add keys to known_hosts
   shell: "ssh-keyscan {{ item }} >> ~/.ssh/known_hosts"
   with_items:
-    - "node1"
-    - "node2"
-    - "node3"
+    - "adm"
+    - "node-1"
+    - "node-2"
+    - "node-3"

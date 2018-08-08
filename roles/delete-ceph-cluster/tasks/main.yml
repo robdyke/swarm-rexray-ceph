@@ -2,25 +2,25 @@
 - name: delete osd disk partition
   shell: ceph-deploy disk zap "{{item}}":sda
   with_items:
-    - "node1"
-    - "node2"
-    - "node3"
+    - "node-1"
+    - "node-2"
+    - "node-3"
   args:
     chdir: ~/cluster
 - name: purge node
   shell: ceph-deploy purge "{{ item }}"
   with_items:
-    - "node1"
-    - "node2"
-    - "node3"
+    - "node-1"
+    - "node-2"
+    - "node-3"
   args:
     chdir: ~/cluster
 - name: purge node data
   shell: ceph-deploy purgedata "{{ item }}"
   with_items:
-    - "node1"
-    - "node2"
-    - "node3"
+    - "node-1"
+    - "node-2"
+    - "node-3"
   args:
     chdir: ~/cluster
 - name: remove keys

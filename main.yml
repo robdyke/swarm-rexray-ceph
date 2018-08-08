@@ -1,5 +1,6 @@
 ---
 - name: common configuration
+  become: yes
   hosts: all
   roles:
     - create-sudo-user
@@ -26,31 +27,33 @@
     - ceph-deploy-setup
 
 - name: deploy cluster
-  become: true
-  become_method: su
+  become: yes
+  # become_method: su
   become_user: cephuser
-  become_flags: '-'
+  # become_flags: '-'
   hosts: admin
   roles:
     - deploy-ceph-cluster
 
 - name: install REX-Ray
+  become: yes
   hosts: osd
   roles:
     - rex-ray-installation
     - rex-ray-configuration
 
 - name: install Docker
+  become: yes
   hosts: osd
   roles:
     - docker-installation
 
 - name: init Docker swarm
-  hosts: node1
+  hosts: node-1
   roles:
     - docker-swarm-init
 
 - name: add managers
-  hosts: node2, node3 
+  hosts: node-2, node-3
   roles:
     - docker-swarm-add-manager
